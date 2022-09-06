@@ -29,7 +29,9 @@ func (a App) Run(v turbine.Turbine) error {
 		return err
 	}
 
-	err = cck.Write(rr, "topic_2")
+	err = cck.WriteWithConfig(rr, "topic_2", []turbine.ResourceConfig{
+		{"conduit", "true"},
+	})
 	if err != nil {
 		return err
 	}
