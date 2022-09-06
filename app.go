@@ -29,8 +29,10 @@ func (a App) Run(v turbine.Turbine) error {
 		return err
 	}
 
+	// collection doesn't work for Kafka destination
 	err = cck.WriteWithConfig(rr, "topic_2", []turbine.ResourceConfig{
 		{"conduit", "true"},
+		{"topic", "topic_2"},
 	})
 	if err != nil {
 		return err
