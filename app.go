@@ -21,7 +21,7 @@ func (a App) Run(v turbine.Turbine) error {
 		return err
 	}
 
-	rr, err := source.Records("topic_1", nil)
+	rr, err := cck.Records("topic_1", nil)
 	if err != nil {
 		return err
 	}
