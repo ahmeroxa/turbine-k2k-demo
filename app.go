@@ -21,7 +21,10 @@ func (a App) Run(v turbine.Turbine) error {
 		return err
 	}
 
-	rr, err := cck.Records("topic_1", nil)
+	rr, err := cck.Records("topic_1", []turbine.ResourceConfig{
+		{"conduit", "true"},
+	})
+
 	if err != nil {
 		return err
 	}
